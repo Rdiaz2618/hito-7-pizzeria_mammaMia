@@ -1,19 +1,8 @@
-import { useState } from 'react';
-import { pizzaCart } from '../data/pizzas';
+import { useCart } from '../context/useCart';
 import { formatPrice } from '../utils/formatPrice';
 
 const Cart = () => {
-  const [carrito, setCarrito] = useState(pizzaCart);
-
-  const cambiarCantidad = (id, cantidad) => {
-    setCarrito((carritoActual) =>
-      carritoActual
-        .map((pizza) => (pizza.id === id ? { ...pizza, count: pizza.count + cantidad } : pizza))
-        .filter((pizza) => pizza.count > 0),
-    );
-  };
-
-  const total = carrito.reduce((acumulador, pizza) => acumulador + pizza.price * pizza.count, 0);
+  const { carrito, total, cambiarCantidad } = useCart();
 
   return (
     <main className="carrito-pagina">

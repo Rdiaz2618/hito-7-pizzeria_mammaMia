@@ -1,6 +1,6 @@
 import { formatPrice } from '../utils/formatPrice';
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ name, price, ingredients, img, onAdd }) => {
   return (
     <div className="card shadow-sm" style={{ width: '18rem' }}>
       <img src={img} className="card-img-top" alt={`Pizza ${name}`} style={{ height: '200px', objectFit: 'cover' }} />
@@ -15,7 +15,7 @@ const CardPizza = ({ name, price, ingredients, img }) => {
         <p className="fw-bold">Precio: {formatPrice(price)}</p>
         <div className="d-flex justify-content-center gap-2">
           <button className="btn btn-outline-secondary btn-sm">Ver Más</button>
-          <button className="btn btn-dark btn-sm">Añadir</button>
+          <button className="btn btn-dark btn-sm" onClick={onAdd}>Añadir</button>
         </div>
       </div>
     </div>

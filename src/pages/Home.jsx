@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import Header from '../componentes/Header';
 import CardPizza from '../componentes/CardPizza';
 import { pizzas } from '../data/pizzas';
+import { useCart } from '../context/useCart';
 
 const Home = () => {
+  const { agregarAlCarrito } = useCart();
   const [listaPizzas, setListaPizzas] = useState([]);
   const [cargando, setCargando] = useState(true);
 
@@ -43,6 +45,7 @@ const Home = () => {
                 price={pizza.price}
                 ingredients={pizza.ingredients}
                 img={pizza.img}
+                onAdd={() => agregarAlCarrito(pizza)}
               />
             </div>
           ))}

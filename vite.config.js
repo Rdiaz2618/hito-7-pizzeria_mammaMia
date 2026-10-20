@@ -3,5 +3,5 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/hito-5-pizzeria_mammaMia/',
+  base: '/hito-6-pizzeria_mammaMia/',
 })
