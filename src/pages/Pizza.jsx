@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { pizzas } from '../data/pizzas';
 import { formatPrice } from '../utils/formatPrice';
 
 const Pizza = () => {
+  const { id } = useParams();
   const [pizza, setPizza] = useState(null);
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
     const obtenerPizza = async () => {
       try {
-        const respuesta = await fetch('http://localhost:5000/api/pizzas/p001');
+        const respuesta = await fetch(`http://localhost:5000/api/pizzas/${id}`);
 
         if (!respuesta.ok) {
           throw new Error('No se pudo obtener la información de la pizza.');
@@ -18,14 +20,14 @@ const Pizza = () => {
         const datos = await respuesta.json();
         setPizza(datos);
       } catch {
-        setPizza(pizzas.find((pizzaActual) => pizzaActual.id === 'p001'));
+        setPizza(pizzas.find((pizzaActual) => pizzaActual.id === id));
       } finally {
         setCargando(false);
       }
     };
 
     obtenerPizza();
-  }, []);
+  }, [id]);
 
   if (cargando) {
     return <main className="pizza-detalle">Cargando pizza...</main>;

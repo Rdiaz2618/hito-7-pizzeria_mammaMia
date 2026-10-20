@@ -1,6 +1,7 @@
 import { formatPrice } from '../utils/formatPrice';
+import { Link } from 'react-router-dom';
 
-const CardPizza = ({ name, price, ingredients, img, onAdd }) => {
+const CardPizza = ({ id, name, price, ingredients, img, onAdd }) => {
   return (
     <div className="card shadow-sm" style={{ width: '18rem' }}>
       <img src={img} className="card-img-top" alt={`Pizza ${name}`} style={{ height: '200px', objectFit: 'cover' }} />
@@ -14,7 +15,7 @@ const CardPizza = ({ name, price, ingredients, img, onAdd }) => {
         </ul>
         <p className="fw-bold">Precio: {formatPrice(price)}</p>
         <div className="d-flex justify-content-center gap-2">
-          <button className="btn btn-outline-secondary btn-sm">Ver Más</button>
+          <Link className="btn btn-outline-secondary btn-sm" to={`/pizza/${id}`}>Ver más</Link>
           <button className="btn btn-dark btn-sm" onClick={onAdd}>Añadir</button>
         </div>
       </div>

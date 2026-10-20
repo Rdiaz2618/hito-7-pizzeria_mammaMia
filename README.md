@@ -1,10 +1,10 @@
-# Pizzería Mamma Mia! - Hito 6
+# Pizzería Mamma Mia! - Hito 7
 
-Proyecto del Hito 6 de la Academia Desafío Latam - Context API.
+Proyecto del Hito 7 de la Academia Desafío Latam - React Router II.
 
 ## Descripción
 
-Aplicación web desarrollada con **React** y **Vite.js** que toma como base los hitos anteriores de Pizzería Mamma Mia e incorpora un estado global para el carrito mediante Context API.
+Aplicación web desarrollada con **React** y **Vite.js** que incorpora rutas protegidas, parámetros dinámicos y contextos globales para usuario y carrito.
 
 ## Componentes
 
@@ -19,6 +19,7 @@ Aplicación web desarrollada con **React** y **Vite.js** que toma como base los 
 - **Perfil**: vista de perfil con correo estático y botón de cerrar sesión.
 - **NoEncontrado**: vista 404 con enlace de regreso al inicio.
 - **CartContext**: estado global para agregar productos, modificar cantidades y calcular el total.
+- **UserContext**: token simulado y método para cerrar sesión.
 - **Footer**: pie de página con la información de derechos reservados.
 
 ## Tecnologías utilizadas

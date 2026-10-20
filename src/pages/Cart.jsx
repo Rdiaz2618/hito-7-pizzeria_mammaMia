@@ -1,8 +1,10 @@
 import { useCart } from '../context/useCart';
+import { useUser } from '../context/useUser';
 import { formatPrice } from '../utils/formatPrice';
 
 const Cart = () => {
   const { carrito, total, cambiarCantidad } = useCart();
+  const { token } = useUser();
 
   return (
     <main className="carrito-pagina">
@@ -33,7 +35,7 @@ const Cart = () => {
 
         <div className="carrito-total">
           <h3>Total: {formatPrice(total)}</h3>
-          <button className="btn btn-dark">Pagar</button>
+          <button className="btn btn-dark" disabled={!token}>Pagar</button>
         </div>
       </section>
     </main>

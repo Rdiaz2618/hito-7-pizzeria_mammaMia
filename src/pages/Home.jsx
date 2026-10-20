@@ -42,6 +42,7 @@ const Home = () => {
             <div className="col-auto" key={pizza.id}>
               <CardPizza
                 name={pizza.name}
+                id={pizza.id}
                 price={pizza.price}
                 ingredients={pizza.ingredients}
                 img={pizza.img}
